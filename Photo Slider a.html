@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.12/js/all.js" integrity="sha384-Voup2lBiiyZYkRto2XWqbzxHXwzcm4A5RfdfG6466bu5LqjwwrjXCMBQBLMWh7qR" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">  
+
+<style>
+
+	.fa-disabled {
+	  opacity: 0.6;
+	  cursor: not-allowed;
+	}
+
+	.titleelem
+	{
+		float:left;
+	}
+
+	.btn
+	{
+		float:right;
+
+	}
+
+	.headerelem
+	{
+		height: 40px;
+		border:0px solid gray;
+		padding-top:10px;
+		padding-bottom: 10px;
+	}
+
+	.elem
+	{
+		padding:5px;
+		border:0px solid gray;
+	}
+
+	.contentelem
+	{
+		margin-top:0px;
+		width:640px;
+		height:428px;
+	}
+
+</style>
+
+
+<script>	
+	var currIndex=0;
+	var photos=[];
+	
+	$(document).ready(function()
+	{	
+		initPhotos();
+		elem().appendTo($("#box"));
+		currIndex++;
+	
+		if ($(".elem").length==1)
+		{
+			$(".moveleft").addClass("fa-disabled");				
+		}
+		else
+		{
+			$(".moveleft").removeClass("fa-disabled");							
+		}
+
+
+		$(document).on("click",".moveright", function()
+		{
+			elem().appendTo($("#box"));  
+			var leftPos = $('#box').scrollLeft();
+			$("#box").animate({scrollLeft: leftPos + 200}, 800);
+			currIndex++;
+		});
+
+
+		$(document).on("click",".moveleft", function()
+		{
+			if ($(".elem").length>1)
+			{
+				$(".elem").last().remove();				
+				var leftPos = $('#box').scrollLeft();
+				$("#box").animate({scrollLeft: leftPos - 200}, 800);
+				currIndex--;
+			}
+		});
+
+
+		function initPhotos()
+		{
+			photos[0]='http://c1.staticflickr.com/6/5495/9340154281_b6334076d5_z.jpg';
+			photos[1]='http://c1.staticflickr.com/3/2947/15406909651_e3ce96e436_z.jpg';		
+			photos[2]='http://c1.staticflickr.com/9/8317/8071399649_2a6afa4d52_z.jpg';
+			photos[3]='http://c1.staticflickr.com/2/1689/26176397062_3db6a77331_z.jpg';
+			photos[4]='http://c1.staticflickr.com/5/4124/5055668546_9f77b4f547_z.jpg';
+			photos[5]='http://c1.staticflickr.com/3/2434/3970004038_8cc561600c_b.jpg';
+			photos[6]='http://c1.staticflickr.com/4/3679/12159755976_7a6571d03d_k.jpg';
+			photos[7]='http://c1.staticflickr.com/3/2280/2202476798_53fbc6e543.jpg';
+			photos[8]='http://c1.staticflickr.com/6/5242/5369781880_260d1817fc_b.jpg';
+			photos[9]='http://c1.staticflickr.com/2/1841/30286738378_26eb2d0847_k.jpg';
+			photos[10]='http://c1.staticflickr.com/5/4398/37101053681_4190aa497a_k.jpg';
+			photos[11]='http://c1.staticflickr.com/3/2583/5793491425_baf1036ae1.jpg';
+			
+		};
+
+
+		function elem()
+		{
+			var currPhoto="<img src='" + photos[currIndex] +"'></img>";
+			var html="<div class='elem'><div class='headerelem alert alert-primary' role='alert'><div class='titleelem'>title</div><div class='btn'><span class='moveleft'><i class='fas fa-arrow-alt-circle-left' ></i></span>&nbsp;&nbsp;<span class='moveright'><i class='fas fa-arrow-alt-circle-right'></i></span></div></div><div class='contentelem alert alert-secondary' role='alert'>" + currPhoto + "</div></div>";
+
+			return $(html);
+		}
+
+	});
+
+
+</script>
+
+
+<title>	
+	slider content
+</title>
+
+</head>
+
+<body>
+	<div class="container-fluid d-flex flex-row" id="box"></div>
+</body>
+</html>
+
