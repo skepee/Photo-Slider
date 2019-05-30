@@ -4,9 +4,9 @@ This project shows the creation and use of horizontally panels, not vertically. 
 
 * **Basic Panels**: a step by step building of horizontally panels, with the use of "+" button to create panels horizontally on the right, and "-" button to remove the current panel.
 
-* **Photo Slider a**: is the application of basic panels to create a photo panels. 
+* **Photo Slider a**: use of basic panels to create a photo panels. 
 
-* **Photo Slider b**: is another  application of basic panels to create a photo panels, but without the toolbar on the top. 
+* **Photo Slider b**: another use of basic panels to create a photo panels without toolbar on the top. 
 
 
 ---
@@ -26,7 +26,7 @@ $(".container").html(initBox);
 
 ```
 
-The createBox function basically builds the panel and the navigation on the top. Do not forget to add also the script to handle the adding/removing panels. So 
+The createBox function basically builds the panel and the navigation on the top. Do not forget to add also the script to handle the adding/removing panels. 
 
 ```
 function createBox(id)
@@ -40,7 +40,7 @@ function createBox(id)
 };
 ```
 
-When the "+" is clicked, what happens? A new panel is added by calling the addBox function. An integer "i" value is passed as a parameter to the function, starting from that the panel i+1 is created.
+When the "+" is clicked, what happens? A new panel is added by calling the "addBox" function. An integer "i" value is passed as a parameter to the function. The "i" parameter indicates the i-th panel and it is used to create the "i+1" panel.
 
 
 ```
@@ -65,10 +65,10 @@ return result;
 ---
 
 Let's analyze the **Photo Slider a/b**.
-In this case, because some photos will be shown, in order to make it prettier, will be used Bootatrap.
-In the loading basically the photo urls are loaded into an array.
+In this case, because some photos will be shown, in order to make it prettier, Bootstrap will be used.
+In the loading function basically the photo urls are loaded into an array.
 
-The function elem() takes the n-element of the array to created the html code for the panel: 
+The function "elem()" takes the n-element of the array to create the html code for the panel: 
 
 
 ```
