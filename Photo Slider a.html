@@ -10,6 +10,14 @@
 
 <style>
 
+
+	<!-- .moveleft, -->
+	<!-- .moveright -->
+	<!-- { -->
+		<!-- font-size:2em; -->
+	<!-- } -->
+	
+
 	.fa-disabled {
 	  opacity: 0.6;
 	  cursor: not-allowed;
@@ -20,9 +28,10 @@
 		float:left;
 	}
 
-	.btn
+	.navigation
 	{
 		float:right;
+		font-size:2em;
 
 	}
 
@@ -30,8 +39,9 @@
 	{
 		height: 40px;
 		border:0px solid gray;
-		padding-top:10px;
-		padding-bottom: 10px;
+		/*padding-top:10px;
+		padding-bottom: 10px;*/
+		box-sizing:content-box;
 	}
 
 	.elem
@@ -111,8 +121,8 @@
 
 		function elem()
 		{
-			var currPhoto="<img src='" + photos[currIndex] +"'></img>";
-			var html="<div class='elem'><div class='headerelem alert alert-primary' role='alert'><div class='titleelem'>title</div><div class='btn'><span class='moveleft'><i class='fas fa-arrow-alt-circle-left' ></i></span>&nbsp;&nbsp;<span class='moveright'><i class='fas fa-arrow-alt-circle-right'></i></span></div></div><div class='contentelem alert alert-secondary' role='alert'>" + currPhoto + "</div></div>";
+			var currPhoto="<img class='img-fluid' src='" + photos[currIndex] +"'></img>";
+			var html="<div class='elem'><div class='headerelem alert alert-primary' role='alert'><div class='titleelem'>title</div><div class='navigation'><span class='moveleft'><i class='fas fa-arrow-alt-circle-left' ></i></span>&nbsp;&nbsp;<span class='moveright'><i class='fas fa-arrow-alt-circle-right'></i></span></div></div><div class='contentelem alert alert-secondary' role='alert'>" + currPhoto + "</div></div>";
 
 			return $(html);
 		}
