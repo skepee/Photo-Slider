@@ -13,7 +13,7 @@ This project shows the creation and use of horizontally panels, not vertically. 
 
 Let's analyze the **Basic Panels**.
 
-![Basic Panel](https://github.com/skepee/Photo-Slider/ScreenshotBasicPanel.jpg)
+![Basic Panel](https://github.com/skepee/Photo-Slider/blob/master/ScreenshotBasicPanel.jpg)
 
 
 
